@@ -1,0 +1,172 @@
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: var(--transition);
+  }
+  
+  .modal.active {
+    display: block;
+    opacity: 1;
+  }
+  
+  .modal-content {
+    background-color: var(--white);
+    margin: 2% auto;
+    padding: 25px;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    transform: translateY(-30px);
+    transition: var(--transition);
+    position: relative;
+  }
+  
+  @media (max-width: 768px) {
+    .modal-content {
+      width: 95%;
+      padding: 15px;
+      margin: 10% auto;
+    }
+  }
+  
+  .modal.active .modal-content {
+    transform: translateY(0);
+  }
+  
+  .close-button {
+    color: var(--light-text);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .close-button:hover {
+    color: var(--primary-color);
+  }
+  
+  #modal-title {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+  
+  /* Slideshow Styles */
+  .slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: var(--sky-blue-light);
+  }
+  
+  .slides-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .slide {
+    min-width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio by default */
+    position: relative;
+  }
+  
+  .slide-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* This ensures the image is fully visible */
+    background-color: var(--sky-blue-light);
+  }
+  
+  .prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 5;
+  }
+  
+  .prev-btn {
+    left: 15px;
+  }
+  
+  .next-btn {
+    right: 15px;
+  }
+  
+  .prev-btn:hover, .next-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
+  
+  /* Dots indicator */
+  .dots-container {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .dot.active {
+    background-color: var(--primary-color);
+  }
+  
+  /* Additional animation classes */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.3s ease-in;
+  }
+  
+  /* Media queries for better responsiveness */
+  @media (max-width: 768px) {
+    .prev-btn, .next-btn {
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
+    }
+    
+    .dot {
+      width: 8px;
+      height: 8px;
+    }
+  }
